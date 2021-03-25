@@ -3,12 +3,13 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import HomePage from "../pages/HomePage";
 
 function Routes() {
     return <>
         <Switch>
             <Route path="/" exact>
-                <div>Home</div>
+                <HomePage /> 
             </Route>
             <Route path="/rooms" exact> 
                 <div>Rooms</div>

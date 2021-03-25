@@ -3,12 +3,15 @@ import Routes from "./config/routes"
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
+import BasicPage from "./pages/BasicPage"
 
 function App() {
   return (
-    <Router>
-      <Routes />
-    </Router>
+    <BasicPage>
+      <Router>
+        <Routes />
+      </Router>
+    </BasicPage>
   );
 }
 
