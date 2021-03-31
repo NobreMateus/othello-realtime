@@ -1,0 +1,39 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    background-color: #FF5E78;
+    grid-gap: 3px;
+    transform: rotateX(60deg) rotateZ(45deg);
+    box-shadow: 40px 40px 5px rgba(0, 0, 0, 0.24);
+    border: 3px solid #FF5E78;
+    
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #121212;
+}
+
+.inactive-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #121212;
+}
+
+.grid-item:hover {
+    background-color: #845EC2;
+    cursor: pointer
+}
+
+.user-part {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+}
