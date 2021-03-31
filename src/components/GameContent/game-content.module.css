@@ -16,9 +16,10 @@
 
 .chat-container {
     width: calc(40% - 24px);
-    height: calc(100vh - 48px);
+    height: calc(100vh - 72px);
     background-color: #F4F4F4;
     border-radius: 16px;
+    padding: 12px;
 }
 
 .grid-container {
