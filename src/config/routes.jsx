@@ -3,7 +3,9 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import GamePage from "../pages/GamePage";
 import HomePage from "../pages/HomePage";
+import RoomsPage from "../pages/RoomsPage"
 
 function Routes() {
     return <>
@@ -12,10 +14,10 @@ function Routes() {
                 <HomePage /> 
             </Route>
             <Route path="/rooms" exact> 
-                <div>Rooms</div>
+                <RoomsPage></RoomsPage>
             </Route>
             <Route path="/game" exact>
-                <div>Game</div>
+                <GamePage></GamePage>
             </Route>
             <div>Pagina Nao encontrada</div>
         </Switch>

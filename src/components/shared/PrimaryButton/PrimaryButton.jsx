@@ -15,5 +15,6 @@ const style = {
     paddingLeft: "8px",
     paddingRight: "8px",
     backgroundColor: "#FF5E78",
-    color: "#F4F4F4"
+    color: "#F4F4F4",
+    cursor: "pointer"
 }
