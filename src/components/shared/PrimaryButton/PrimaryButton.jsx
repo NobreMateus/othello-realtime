@@ -2,7 +2,7 @@ import React from 'react'
 
 function PrimaryButton(props) {
     return <>
-        <button style={{...style, ...props.style}} type={props.type}>{props.text}</button>
+        <button onClick={props.onClick} style={{...style, ...props.style}} type={props.type}>{props.text}</button>
     </>
 }
 export default PrimaryButton
