@@ -15,12 +15,10 @@ export default class SocketManager {
         socket.on("connect", ()=>{
             console.log("Conectei")
         })
-
-        this.configRoom(this.roomName)
     }
 
     configRoom(roomName) {
-        this.roomName = roomName 
+        this.roomName = roomName
         this.socket.emit("enterRoom", {
             roomName: this.roomName
         })
