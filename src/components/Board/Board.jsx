@@ -19,40 +19,12 @@ export default function Board() {
     )
     const [userTurn, setUserTurn] = useState("x")
     
-    // const roomName = "first room"
-    
     useEffect(()=>{
-        
-        // socket.on("connect", ()=>{
-        //     console.log("Conectei")
-        // })
-
-        // socket.on("startGame", (data)=>{
-        //     console.log("Jogo Iniciado")
-        //     setBoardState(data.gameState)
-        //     setUserTurn(data.userTurn)
-        // })
-
-        // socket.on("updateBoardState", (data) => {
-        //     setBoardState(data.gameState)
-        //     setUserTurn(data.userTurn)
-        // })
-
-        // socket.emit("enterRoom", {
-        //     roomName: roomName
-        // })
-
+        connectionManager.configGame(setBoardState, setUserTurn)
     }, [])
 
     const clickPosition = (pos)=>{
-        // if(boardState[pos] === "-") {
-        //     socket.emit("updateGame", {
-        //         pos: pos,
-        //         userTurn: userTurn,
-        //         roomName: roomName
-        //     })
-        //     userTurn==='x'?setUserTurn('o'):setUserTurn('x')
-        // }
+        connectionManager.updateGame(boardState, userTurn, pos)
     }
 
     return <BoardPresenter allStatus={boardState} clickPosition={clickPosition}/>
