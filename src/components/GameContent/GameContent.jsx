@@ -1,12 +1,12 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 import Board from "../Board/Board"
 import Chat from "../Chat/Chat"
 import styles from "./game-content.module.css"
-import SocketManager from "../../model/SocketManager"
+import { UserConContext } from "../../providers/UserConProvider"
 
 export default function GameContent() {
 
-    // const [socketManager] = useState(new SocketManager("first room"))
+    const { userName } = useContext(UserConContext)
 
     return <div className={styles["container"]}>
         <div className={styles["game-container"]}>
@@ -17,7 +17,7 @@ export default function GameContent() {
 
             </div>
             <div className={styles["chat-container"]}>
-                <Chat />
+                <Chat userName = {userName} />
             </div>
 
         </div>

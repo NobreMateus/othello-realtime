@@ -4,14 +4,17 @@ import {
   BrowserRouter as Router,
 } from "react-router-dom";
 import BasicPage from "./pages/BasicPage"
+import UserConProvider from "./providers/UserConProvider";
 
 function App() {
   return (
-    <BasicPage>
-      <Router>
-        <Routes />
-      </Router>
-    </BasicPage>
+    <UserConProvider>
+      <BasicPage>
+        <Router>
+          <Routes />
+        </Router>
+      </BasicPage>
+    </UserConProvider>
   );
 }
 

@@ -4,9 +4,10 @@ import SocketManager from "../../model/SocketManager"
 
 const socketManager = new SocketManager()
 
-export default function Chat() {
+export default function Chat(props) {
 
     const [messages, setMessages] = useState([])
+    console.log(props)
 
     useEffect(()=>{
         socketManager.messages = messages
