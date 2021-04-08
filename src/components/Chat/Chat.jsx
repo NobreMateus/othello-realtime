@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ChatPresenter from './ChatPresenter'
-import SocketManager from "../../model/SocketManager"
-
-const socketManager = new SocketManager()
 
 export default function Chat(props) {
 
@@ -10,15 +7,15 @@ export default function Chat(props) {
     console.log(props)
 
     useEffect(()=>{
-        socketManager.messages = messages
+        // socketManager.messages = messages
     }, [messages])
 
     useEffect(()=>{
-        socketManager.configChat(setMessages)
+        // socketManager.configChat(setMessages)
     }, [])
 
     const addMessage = (message) => {
-        socketManager.sendMessage(message)
+        // socketManager.sendMessage(message)
     }
 
     return <ChatPresenter messages={messages} addMessage={addMessage}/>
