@@ -8,6 +8,8 @@ export default class SocketManager {
     roomName = "first room"
     messages = []
 
+    static shared = this.shared ? this.shared : new SocketManager() 
+    
     constructor() {
         const socket = io("http://localhost:4000")
         this.socket = socket

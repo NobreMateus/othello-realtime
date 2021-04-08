@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import ChatPresenter from './ChatPresenter'
+import { ConnectionContext } from '../../providers/ConnectionProvider'
 
 export default function Chat(props) {
 
     const [messages, setMessages] = useState([])
-    console.log(props)
+    const { connectionManager } = useContext(ConnectionContext) 
 
     useEffect(()=>{
-        // socketManager.messages = messages
+        connectionManager.messages = messages
     }, [messages])
 
     useEffect(()=>{
-        // socketManager.configChat(setMessages)
+        connectionManager.configChat(setMessages)
     }, [])
 
     const addMessage = (message) => {
-        // socketManager.sendMessage(message)
+        connectionManager.sendMessage(message)
     }
 
     return <ChatPresenter messages={messages} addMessage={addMessage}/>

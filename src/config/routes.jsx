@@ -6,6 +6,7 @@ import {
 import GamePage from "../pages/GamePage";
 import HomePage from "../pages/HomePage";
 import RoomsPage from "../pages/RoomsPage"
+import ConnectionProvider from '../providers/ConnectionProvider'
 
 function Routes() {
     return <>
@@ -13,12 +14,14 @@ function Routes() {
             <Route path="/" exact>
                 <HomePage /> 
             </Route>
-            <Route path="/rooms" exact> 
-                <RoomsPage></RoomsPage>
-            </Route>
-            <Route path="/game" exact>
-                <GamePage></GamePage>
-            </Route>
+            <ConnectionProvider> 
+                <Route path="/rooms" exact> 
+                    <RoomsPage></RoomsPage>
+                </Route>
+                <Route path="/game" exact>
+                    <GamePage></GamePage>
+                </Route>
+            </ConnectionProvider>
             <div>Pagina Nao encontrada</div>
         </Switch>
     </>

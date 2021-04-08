@@ -6,7 +6,7 @@ export const ConnectionContext =  createContext({})
 export default function ConnectionProvider(props) {
     
     const data = {
-        connectionManager: new SocketManager()
+        connectionManager: SocketManager.shared
     }
 
     return <ConnectionContext.Provider value={data} >

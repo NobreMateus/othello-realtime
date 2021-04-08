@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import BoardPresenter from './BoardPresenter'
-
-import { io } from "socket.io-client";
-// const socket = io("http://localhost:4000")
+import { ConnectionContext } from '../../providers/ConnectionProvider'
 
 export default function Board() {
+
+    const { connectionManager } = useContext(ConnectionContext)
     const [boardState, setBoardState] = useState(
         [
             '-', '-', '-', '-', '-', '-', '-', '-',
