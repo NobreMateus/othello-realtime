@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import BoardPresenter from './BoardPresenter'
 
 import { io } from "socket.io-client";
-const socket = io("http://localhost:4000")
+// const socket = io("http://localhost:4000")
 
 export default function Board() {
-    
     const [boardState, setBoardState] = useState(
         [
             '-', '-', '-', '-', '-', '-', '-', '-',
@@ -20,38 +19,40 @@ export default function Board() {
     )
     const [userTurn, setUserTurn] = useState("x")
     
+    // const roomName = "first room"
+    
     useEffect(()=>{
         
+        // socket.on("connect", ()=>{
+        //     console.log("Conectei")
+        // })
 
-        socket.on("connect", ()=>{
-            console.log("Conectei")
-        })
-        socket.on("New Room", ()=>{
-            console.log("Entrei em uma sala")
-        })
+        // socket.on("startGame", (data)=>{
+        //     console.log("Jogo Iniciado")
+        //     setBoardState(data.gameState)
+        //     setUserTurn(data.userTurn)
+        // })
 
-        socket.on("updateBoardState", (data) => {
-            console.log(data)
-            setBoardState(data.gameState)
-            setUserTurn(data.playerTurn)
-        })
+        // socket.on("updateBoardState", (data) => {
+        //     setBoardState(data.gameState)
+        //     setUserTurn(data.userTurn)
+        // })
+
+        // socket.emit("enterRoom", {
+        //     roomName: roomName
+        // })
 
     }, [])
-    
-    
+
     const clickPosition = (pos)=>{
-        console.log(pos)
-        if(boardState[pos] === "-") {
-            // let newBoard = boardState
-            // newBoard[pos] = userTurn
-            // setBoardState(newBoard)
-            // const newUserTurn = userTurn==="x"?"o":"x"
-            // setUserTurn(newUserTurn)
-            socket.emit("updateGame", {
-                pos: pos,
-                user: userTurn
-            })
-        }
+        // if(boardState[pos] === "-") {
+        //     socket.emit("updateGame", {
+        //         pos: pos,
+        //         userTurn: userTurn,
+        //         roomName: roomName
+        //     })
+        //     userTurn==='x'?setUserTurn('o'):setUserTurn('x')
+        // }
     }
 
     return <BoardPresenter allStatus={boardState} clickPosition={clickPosition}/>
