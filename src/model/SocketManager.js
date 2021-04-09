@@ -5,8 +5,10 @@ export default class SocketManager {
     socket
     setBoardState
     setUserTurn
+    setRooms
     roomName = "first room"
     messages = []
+    rooms = []
 
     static shared = this.shared ? this.shared : new SocketManager() 
     
@@ -16,6 +18,11 @@ export default class SocketManager {
         
         socket.on("connect", ()=>{
             console.log("Conectei")
+        })
+
+        socket.on("getRooms", (data)=>{
+            console.log("rooms: ")
+            this.rooms = data
         })
     }
 
@@ -51,6 +58,7 @@ export default class SocketManager {
     }
 
     updateGame(boardState, userTurn, pos) {
+        console.log(this.roomName)
         if(boardState[pos] === "-") {
             this.socket.emit("updateGame", {
                 pos: pos,

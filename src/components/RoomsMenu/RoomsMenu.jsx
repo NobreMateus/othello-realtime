@@ -5,15 +5,18 @@ import RoomsMenuPresenter from './RoomsMenuPresenter'
 function RoomsMenu() {
     
     const { connectionManager } = useContext(ConnectionContext)
-    const [rooms, setRooms] = useState([
-        {id: 1, name: "first room", amountPlayers: 1, selected: false },
-        {id: 2, name: "second room", amountPlayers: 1, selected: false },
-        {id: 3, name: "third room", amountPlayers: 1, selected: false },
-        {id: 4, name: "fourth room", amountPlayers: 1, selected: false },
-        {id: 5, name: "fifth room", amountPlayers: 1, selected: false },
-        {id: 6, name: "sixth room", amountPlayers: 1, selected: false },
-    ])
+    const [rooms, setRooms] = useState([])
     const [selectedRoom, setSelectedRoom] = useState(undefined)
+
+    useEffect(()=>{
+        const newRooms = connectionManager.rooms.map(room=>{
+            return {
+                ...room,
+                selected: false
+            }
+        })
+        setRooms(newRooms)
+    }, [])
 
     useEffect(()=>{
         for(const room of rooms) {
