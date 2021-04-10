@@ -7,14 +7,14 @@ export default function Board() {
     const { connectionManager } = useContext(ConnectionContext)
     const [boardState, setBoardState] = useState(
         [
-            '-', '-', '-', '-', '-', '-', '-', '-',
-            '-', '-', '-', '-', '-', '-', '-', '-',
-            '-', '-', '-', '-', '-', '-', '-', '-',
-            '-', '-', '-', '-', '-', '-', '-', '-',
-            '-', '-', '-', '-', '-', '-', '-', '-',
-            '-', '-', '-', '-', '-', '-', '-', '-',
-            '-', '-', '-', '-', '-', '-', '-', '-',
-            '-', '-', '-', '-', '-', '-', '-', '-',
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
+            ['-', '-', '-', '-', '-', '-', '-', '-'],
         ]
     )
     const [userTurn, setUserTurn] = useState("x")
@@ -23,9 +23,9 @@ export default function Board() {
         connectionManager.configGame(setBoardState, setUserTurn)
     }, [])
 
-    const clickPosition = (pos)=>{
-        connectionManager.updateGame(boardState, userTurn, pos)
+    const clickPosition = (x, y)=>{
+        connectionManager.updateGame(boardState, userTurn, x, y)
     }
 
-    return <BoardPresenter allStatus={boardState} clickPosition={clickPosition}/>
+    return <BoardPresenter statusMatrix={boardState} clickPosition={clickPosition}/>
 }

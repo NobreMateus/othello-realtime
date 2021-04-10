@@ -62,11 +62,12 @@ export default class SocketManager {
         })
     }
 
-    updateGame(boardState, userTurn, pos) {
+    updateGame(boardState, userTurn, x, y) {
         console.log(this.roomName)
-        if(boardState[pos] === "-") {
+        if(boardState[x][y] === "-") {
             this.socket.emit("updateGame", {
-                pos: pos,
+                x: x,
+                y: y,
                 userTurn: userTurn,
                 roomName: this.roomName
             })
