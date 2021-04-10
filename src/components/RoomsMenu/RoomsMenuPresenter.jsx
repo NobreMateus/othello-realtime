@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './room-menu.module.css'
 import PrimaryButon from '../shared/PrimaryButton/PrimaryButton'
-import { Link } from 'react-router-dom'
 
 export default function RoomsMenuPresenter(props){
     return <div className={styles["container"]}>

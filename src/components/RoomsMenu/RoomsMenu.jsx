@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect} from 'react'
 import { ConnectionContext } from '../../providers/ConnectionProvider'
+import { UserConContext } from '../../providers/UserConProvider'
 import RoomsMenuPresenter from './RoomsMenuPresenter'
 import { useHistory } from "react-router-dom";
 
@@ -7,6 +8,7 @@ function RoomsMenu() {
 
     const history = useHistory();
     const { connectionManager } = useContext(ConnectionContext)
+    const { userName } = useContext(UserConContext)
     const [rooms, setRooms] = useState([])
     const [selectedRoom, setSelectedRoom] = useState(undefined)
 
@@ -33,7 +35,7 @@ function RoomsMenu() {
 
     const enterRoom = () => {
         if(selectedRoom){
-            connectionManager.configRoom(selectedRoom.name, history)
+            connectionManager.configRoom(selectedRoom.name, userName, history)
             history.push('/game')
         } else {
             alert("Selecione uma Sala")
