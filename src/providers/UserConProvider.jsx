@@ -4,7 +4,7 @@ export const UserConContext =  createContext({})
 
 export default function UserConProvider(props) {
 
-    const [userName, setUserName]= useState("Nobre")
+    const [userName, setUserName]= useState("")
     
     const data = {
         setUserName: setUserName,

@@ -3,6 +3,7 @@ import Board from "../Board/Board"
 import Chat from "../Chat/Chat"
 import styles from "./game-content.module.css"
 import { UserConContext } from "../../providers/UserConProvider"
+import GameDetails from "../GameDetails/GameDetails"
 
 export default function GameContent() {
 
@@ -14,7 +15,7 @@ export default function GameContent() {
         </div>
         <div className={styles["info-container"]}>
             <div className={styles["details-container"]}>
-
+                <GameDetails /> 
             </div>
             <div className={styles["chat-container"]}>
                 <Chat userName = {userName} />

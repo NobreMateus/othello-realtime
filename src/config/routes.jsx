@@ -1,14 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
     Switch,
-    Route
+    Route,
+    Redirect
 } from "react-router-dom";
 import GamePage from "../pages/GamePage";
 import HomePage from "../pages/HomePage";
 import RoomsPage from "../pages/RoomsPage"
 import ConnectionProvider from '../providers/ConnectionProvider'
+import { UserConContext } from '../providers/UserConProvider'
 
 function Routes() {
+    const { userName } = useContext(UserConContext)
     return <>
         <Switch>
             <Route path="/" exact>
@@ -16,10 +19,10 @@ function Routes() {
             </Route>
             <ConnectionProvider> 
                 <Route path="/rooms" exact> 
-                    <RoomsPage></RoomsPage>
+                    {userName==="" ? <Redirect to="/" /> :  <RoomsPage></RoomsPage>} 
                 </Route>
                 <Route path="/game" exact>
-                    <GamePage></GamePage>
+                    {userName==="" ? <Redirect to="/" /> :  <GamePage></GamePage>}
                 </Route>
             </ConnectionProvider>
             <div>Pagina Nao encontrada</div>

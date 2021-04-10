@@ -18,9 +18,9 @@ export default function RoomsMenuPresenter(props){
             })}
         </div>
         <div className={styles["buttons-area"]}>
-            <Link to="game" style={{width:"calc(50% - 8px)"}} onClick={()=>props.enterRoom()} >
+            <div style={{width:"calc(50% - 8px)"}} onClick={()=>props.enterRoom()} >
                 <PrimaryButon style={{width:"100%"}} text="Iniciar Jogo"/>
-            </Link>
+            </div>
             <PrimaryButon style={{width:"calc(50% - 8px)"}} text="Criar Sala"/>
         </div>
     </div>
