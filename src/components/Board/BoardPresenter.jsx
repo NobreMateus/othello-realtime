@@ -22,7 +22,7 @@ export default function BoardPresenter(props) {
                         
                         {
                             status === 'p'?
-                                <div className={styles["user-part"]} style={{border: "solid 1px grey"}}></div>
+                                <div className={styles["user-part"]} style={{border: "solid 2px #484848"}}></div>
                                 : null
                         }
                         
@@ -34,20 +34,5 @@ export default function BoardPresenter(props) {
                 })}
             </>
         })}
-
-        {/* {props.allStatus.map((status, num)=> {
-            let showUserPart = false
-            let userPartColor = ""
-            if(status!=="-"){
-                showUserPart = true
-                status==="x"?userPartColor="#845EC2":userPartColor="#FFC75F"
-            }
-            return <div className={status==="-"?styles["grid-item"]:styles["inactive-item"]} onClick={()=>props.clickPosition(num)}>
-                {showUserPart?
-                    <div className={styles["user-part"]} style={{backgroundColor:userPartColor}}></div>
-                    :null
-                }
-            </div>
-        })} */}
     </div>
 }
