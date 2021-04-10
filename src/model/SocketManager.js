@@ -16,6 +16,7 @@ export default class SocketManager {
     serUser1Points
     setUser2Points
     setRoomName
+    setUserTurnInd
 
     static shared = this.shared ? this.shared : new SocketManager() 
     
@@ -43,6 +44,10 @@ export default class SocketManager {
     configRoom(roomName, userName, history) {
         this.roomName = roomName
         this.history = history
+
+        this.socket.on("winnerGame", (data)=> {
+            console.log(data)
+        })
 
         this.socket.on("endGame", (data)=> {
             console.log(data)
@@ -80,7 +85,7 @@ export default class SocketManager {
         })
     }
 
-    configGameDetails(setUser1Name, setUser2Name, setUser1Points, setUser2Points, setRoomName) {
+    configGameDetails(setUser1Name, setUser2Name, setUser1Points, setUser2Points, setRoomName, setUserTurnInd) {
         this.setUser1Name = setUser1Name
         this.setUser2Name = setUser2Name
         this.setUser1Points = setUser1Points
@@ -95,13 +100,15 @@ export default class SocketManager {
         })
 
         this.socket.on("setPontuation", (data)=>{
+            console.log(data)
+            setUserTurnInd(data.userTurn)
             setUser1Points(data.user1Points)
             setUser2Points(data.user2Points)
         })
     }
 
     updateGame(boardState, userTurn, x, y) {
-        if(boardState[x][y] === "-") {
+        if(boardState[x][y] === "p") {
             this.socket.emit("updateGame", {
                 x: x,
                 y: y,

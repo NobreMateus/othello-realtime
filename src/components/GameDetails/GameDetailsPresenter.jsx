@@ -12,14 +12,14 @@ function GameDetailsPresenter(props) {
                     <div className={styles["single-player-area"]}>
                         <span className={styles["points-indicator"]} style={{backgroundColor: "#845EC2"}}>{props.player1Points}</span>
                         <span>{props.user1Name}</span>
-                        <span className={styles["player-type-indicator"]}>
+                        <span className={styles["player-type-indicator"]} style={{display: props.userTurnInd === 'x'?"block":"none"}}>
                             <FaAngleLeft size={30}></FaAngleLeft>
                         </span>
                     </div>
                     <div className={styles["single-player-area"]}>
                         <span className={styles["points-indicator"]} style={{backgroundColor: "#FFC75F"}}>{props.player2Points}</span>
                         <span>{props.user2Name}</span>
-                        <span className={styles["player-type-indicator"]} style={{display: "none"}}>
+                        <span className={styles["player-type-indicator"]} style={{display: props.userTurnInd === 'o'?"block":"none"}}>
                             <FaAngleLeft size={30}></FaAngleLeft>
                         </span>
                     </div>
