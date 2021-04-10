@@ -21,8 +21,13 @@ export default class SocketManager {
         })
 
         socket.on("getRooms", (data)=>{
-            console.log("rooms: ")
+            console.log(data)
             this.rooms = data
+            if(this.setRooms) this.setRooms(this.rooms)
+        })
+
+        socket.on("fullRoom", (roomName) => {
+            alert(`A sala ${roomName} está cheia, por favor tente outra sala!`)
         })
     }
 

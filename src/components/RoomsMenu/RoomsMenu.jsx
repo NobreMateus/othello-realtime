@@ -9,14 +9,9 @@ function RoomsMenu() {
     const [selectedRoom, setSelectedRoom] = useState(undefined)
 
     useEffect(()=>{
-        const newRooms = connectionManager.rooms.map(room=>{
-            return {
-                ...room,
-                selected: false
-            }
-        })
-        setRooms(newRooms)
-    }, [])
+        connectionManager.setRooms = setRooms
+        setRooms(connectionManager.rooms)
+    }, [setRooms, connectionManager])
 
     useEffect(()=>{
         for(const room of rooms) {

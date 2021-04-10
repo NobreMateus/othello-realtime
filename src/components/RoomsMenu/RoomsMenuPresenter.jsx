@@ -13,7 +13,7 @@ export default function RoomsMenuPresenter(props){
             {props.rooms.map( (room, num) => {
                 return <div key={`roomLine${num}`} className={styles["line-room-container"]} style={{backgroundColor: room.selected?"#FFC75F":undefined }} onClick={()=>{props.selectRoom(room.id)}}>
                     <div className={styles["line-room-name"]}>{room.name}</div>
-                    <div className={styles["line-room-amount"]}>{room.amountPlayers}</div>
+                    <div className={styles["line-room-amount"]}>{room.amountUsers}</div>
                 </div>
             })}
         </div>
