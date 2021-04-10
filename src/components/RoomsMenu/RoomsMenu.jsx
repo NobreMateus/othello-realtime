@@ -33,7 +33,7 @@ function RoomsMenu() {
 
     const enterRoom = () => {
         if(selectedRoom){
-            connectionManager.configRoom(selectedRoom.name)
+            connectionManager.configRoom(selectedRoom.name, history)
             history.push('/game')
         } else {
             alert("Selecione uma Sala")

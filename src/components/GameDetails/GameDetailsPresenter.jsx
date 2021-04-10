@@ -26,7 +26,7 @@ function GameDetailsPresenter(props) {
                 </div>
                 <div className={styles["cron-area"]} style={{color: props.turnTime<10 ? "red": "#121212" }} >00:{props.turnTime}</div>
             </div>
-            <PrimaryButton text="Desistir"/>
+            <PrimaryButton text="Desistir" onClick={()=>{props.giveUpGame()}}/>
         </div>
     )
 }

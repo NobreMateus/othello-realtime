@@ -6,6 +6,7 @@ export default class SocketManager {
     setBoardState
     setUserTurn
     setRooms
+    history
     roomName = "first room"
     messages = []
     rooms = []
@@ -26,13 +27,23 @@ export default class SocketManager {
             if(this.setRooms) this.setRooms(this.rooms)
         })
 
-        socket.on("fullRoom", (roomName) => {
-            alert(`A sala ${roomName} está cheia, por favor tente outra sala!`)
+        socket.on("cantEnterRoom", (data) => {
+
+
+            alert(`Não foi possível entrar em ${data.roomName}: ` + data.message)
         })
     }
 
-    configRoom(roomName) {
+    configRoom(roomName, history) {
         this.roomName = roomName
+        this.history = history
+
+        this.socket.on("endGame", (data)=> {
+            console.log(data)
+            // alert(`O jogo terminou: ${data.message}`)
+            history.push('/rooms')
+        })
+
         this.socket.emit("enterRoom", {
             roomName: this.roomName
         })
@@ -80,5 +91,9 @@ export default class SocketManager {
             ...data,
             roomName: this.roomName
         })
+    }
+
+    giveUpGame() {
+        this.socket.emit('giveUp')
     }
 }
