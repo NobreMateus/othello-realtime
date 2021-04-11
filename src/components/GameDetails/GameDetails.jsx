@@ -7,7 +7,7 @@ function GameDetails() {
 
     const history = useHistory();
     const { connectionManager } = useContext(ConnectionContext)
-    const [turnTime, setTurnTime] = useState(30)
+    const [turnTime, ] = useState(30)
 
     const [user1Name, setUser1Name] = useState("Aguardando...")
     const [user2Name, setUser2Name] = useState("Aguardando...")

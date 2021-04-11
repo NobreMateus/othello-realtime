@@ -21,7 +21,7 @@ export default function Board() {
     
     useEffect(()=>{
         connectionManager.configGame(setBoardState, setUserTurn)
-    }, [])
+    }, [connectionManager])
 
     const clickPosition = (x, y)=>{
         connectionManager.updateGame(boardState, userTurn, x, y)

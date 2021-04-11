@@ -9,11 +9,11 @@ export default function Chat(props) {
 
     useEffect(()=>{
         connectionManager.messages = messages
-    }, [messages])
+    }, [messages, connectionManager])
 
     useEffect(()=>{
         connectionManager.configChat(setMessages)
-    }, [])
+    }, [connectionManager])
 
     const addMessage = (message) => {
         connectionManager.sendMessage(message)
