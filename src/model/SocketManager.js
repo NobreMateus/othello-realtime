@@ -21,7 +21,7 @@ export default class SocketManager {
     static shared = this.shared ? this.shared : new SocketManager() 
     
     constructor() {
-        const socket = io("http://localhost:4000")
+        const socket = io("191.237.202.164:4000")
         this.socket = socket
         
         socket.on("connect", ()=>{
