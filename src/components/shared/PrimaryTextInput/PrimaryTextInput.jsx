@@ -2,7 +2,7 @@ import React from 'react'
 
 function PrimaryTextInput(props) {
     return <>
-        <textarea ref={props.ref} style={{...style, ...props.style}} name="" id="" maxLength={props.maxLength} onChange={(ev)=>props.onChange(ev.target.value)} value={props.value}/>
+        <textarea placeholder={props.placeholder} ref={props.ref} style={{...style, ...props.style}} name="" id="" maxLength={props.maxLength} onChange={(ev)=>props.onChange(ev.target.value)} value={props.value}/>
     </>
 }
 export default PrimaryTextInput

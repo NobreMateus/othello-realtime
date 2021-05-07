@@ -22,6 +22,7 @@ export default class SocketManager {
     
     constructor() {
         const socket = io("191.237.202.164:4000")
+        console.log(socket)
         this.socket = socket
         
         socket.on("connect", ()=>{

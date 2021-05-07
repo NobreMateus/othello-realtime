@@ -1,6 +1,4 @@
-FROM node:14.16.1-alpine
-COPY . /usr/src/app 
-WORKDIR /usr/src/app
-RUN npm install
+FROM nginx:1.16.0-alpine
+COPY ./build /usr/share/nginx/html 
 EXPOSE 80
-ENTRYPOINT [ "npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
